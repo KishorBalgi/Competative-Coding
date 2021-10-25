@@ -8,18 +8,12 @@ using namespace std;
 #define cintie cin.tie(NULL);
 #define couttie cout.tie(NULL);
 int main() {
-       syncf;
+    syncf;
 	cintie;
 	couttie;
-	int n,i,j,k,cnt=0,min,flag=0;
-	cin>>n;
-	int a[n];
-	for(i=0;i<n;i++){
-		cin>>a[i];
+	tc {
+	    ll n,k;
+        cin>>n>>k;
 	}
-	for(i=0;i<n-1;i++){
-		for()
-	}
-	cout<<cnt+n-1<<"\n";
 	return 0;
 }

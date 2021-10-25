@@ -11,15 +11,15 @@ int main() {
        syncf;
 	cintie;
 	couttie;
-	int n,i,j,k,cnt=0,min,flag=0;
-	cin>>n;
-	int a[n];
-	for(i=0;i<n;i++){
-		cin>>a[i];
+	tc {
+	    int n,i,cnt=0;
+		cin>>n;
+		int a[n];
+		for(i=0;i<n;i++){
+			cin>>a[i];
+			if(a[i]%2==0) cnt++;
+		} 
+		cout<<cnt<<"\n";
 	}
-	for(i=0;i<n-1;i++){
-		for()
-	}
-	cout<<cnt+n-1<<"\n";
 	return 0;
 }

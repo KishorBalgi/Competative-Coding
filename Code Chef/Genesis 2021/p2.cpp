@@ -11,15 +11,20 @@ int main() {
        syncf;
 	cintie;
 	couttie;
-	int n,i,j,k,cnt=0,min,flag=0;
-	cin>>n;
-	int a[n];
-	for(i=0;i<n;i++){
-		cin>>a[i];
+	tc {
+	    int n,k,i,pos=0;
+		cin>>n>>k;
+		int a[n];
+		for(i=0;i<n;i++){
+			cin>>a[i];
+			if(a[i]==k) pos=i+1;
+		}
+		if(pos!=0){
+			cout<<pos<<"\n";
+		}
+		else{
+			cout<<"not found"<<"\n";
+		}
 	}
-	for(i=0;i<n-1;i++){
-		for()
-	}
-	cout<<cnt+n-1<<"\n";
 	return 0;
 }
