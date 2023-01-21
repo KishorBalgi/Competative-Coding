@@ -1,5 +1,2 @@
-for(vector<int> a: res){
-    //     for(int num: a)
-    //         cout<< num<<" ";
-    //     cout<<'\n';
-    // }
+            // cout<<(r==m-rc-1)<<endl;
+            // cout<<r<<" "<<c<<" : ";
