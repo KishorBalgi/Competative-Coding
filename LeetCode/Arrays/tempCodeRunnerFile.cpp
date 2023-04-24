@@ -1,3 +1,4 @@
-for(int i : res){
-    //     cout<<i<<" ";
-    // }
+ for(auto vect : distances){
+            cout << vect.first << " "
+             << vect.second[0]<<vect.second[1] << endl;
+        }
