@@ -1,8 +1,6 @@
 // https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
-
 #include<iostream>
-#include<queue>
 using namespace std;
 
 // Definition for a binary tree node.
