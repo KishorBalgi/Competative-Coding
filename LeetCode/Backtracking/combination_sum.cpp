@@ -1,6 +1,7 @@
 // https://leetcode.com/problems/combination-sum/
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
 class Solution {
@@ -13,13 +14,14 @@ public:
         }
         if(trg<0 || i==nums.size()) return;
         temp.push_back(nums[i]);
-        backtracking(nums,temp,i,trg-nums[i]);
+        backtracking(nums,temp,i+1,trg-nums[i]);
         temp.pop_back();
         backtracking(nums,temp,i+1,trg);
         return;
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         vector<int> temp;
+        sort(candidates.begin(),candidates.end());
         backtracking(candidates,temp,0,target);
         return res;
     }
@@ -27,9 +29,9 @@ public:
 
 int main(){
     Solution s;
-    vector<int> candidates={2,3,6,7};
+    vector<int> candidates={10,1,2,7,6,1,5};
     vector<vector<int>> res;
-    res=s.combinationSum(candidates,7);
+    res=s.combinationSum(candidates,8);
     for(auto v:res){
         for(auto i:v){
             cout<<i<< " ";

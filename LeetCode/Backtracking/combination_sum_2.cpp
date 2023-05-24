@@ -14,10 +14,13 @@ public:
             return;
         }
         if(trg<0 || i==nums.size()) return;
-        temp.push_back(nums[i]);
-        backtracking(nums,temp,i+1,trg-nums[i]);
-        temp.pop_back();
-        backtracking(nums,temp,i+1,trg);
+
+        for(int j=i;j<nums.size();j++){
+            if(j!=i && nums[j]==nums[j-1]) continue;
+            temp.push_back(nums[j]);
+            backtracking(nums,temp,j+1,trg-nums[j]);
+            temp.pop_back();
+        }
         return;
     }
     vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
