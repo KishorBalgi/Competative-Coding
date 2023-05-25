@@ -1,6 +1,5 @@
 // https://leetcode.com/problems/longest-palindromic-substring/
 #include<iostream>
-#include<cstring>
 
 using namespace std;
 
