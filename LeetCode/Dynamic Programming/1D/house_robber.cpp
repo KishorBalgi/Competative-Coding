@@ -6,25 +6,36 @@ using namespace std;
 
 class Solution {
 public:
-    int solve(vector<int>& nums,vector<int>& dp,int i){
-        if(i>=nums.size()) return 0;
+    // int solve(vector<int>& nums,vector<int>& dp,int i){
+    //     if(i>=nums.size()) return 0;
 
-        if(dp[i]!=-1) return dp[i];
-        // If i is selected:
-        int a=nums[i]+solve(nums,dp,i+2);
+    //     if(dp[i]!=-1) return dp[i];
+    //     // If i is selected:
+    //     int a=nums[i]+solve(nums,dp,i+2);
 
-        // If i is not selected:
-        int b=solve(nums,dp,i+1);
+    //     // If i is not selected:
+    //     int b=solve(nums,dp,i+1);
 
-        dp[i]=max(a,b);
+    //     dp[i]=max(a,b);
 
-        return dp[i]; 
-    }
+    //     return dp[i]; 
+    // }
+    // int rob(vector<int>& nums) {
+    //     int n=nums.size();
+    //     vector<int> dp(n,-1);
+    //     solve(nums,dp,0);
+    //     return dp[0];
+    // }
+
     int rob(vector<int>& nums) {
         int n=nums.size();
-        vector<int> dp(n,-1);
-        solve(nums,dp,0);
-        return dp[0];
+        int rob1=0,rob2=0;
+        for(int i=0;i<n;i++){
+            int temp=max(rob1+nums[i],rob2);
+            rob1=rob2;
+            rob2=temp;
+        }
+        return rob2;
     }
 };
 
