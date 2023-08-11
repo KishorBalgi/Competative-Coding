@@ -10,25 +10,22 @@ using namespace std;
 class Solution {
     public:
     int longestConsecutive(vector<int>& nums) {
-        int n=nums.size(),count,longest;
-        set<int> temp;
-        vector<int> v;
-        if(n==0) return 0;
-        sort(nums.begin(),nums.end());
+        int n=nums.size(),count;
+        set<int> num_set;
         for(int i : nums){
-            temp.insert(i);
+            num_set.insert(i);
         }
-        for(auto i: temp){
-            v.push_back(i);
-        }
-        count=longest=1;
-        for(int i=1;i<v.size();i++){
-            if(abs(v[i]-v[i-1])==1){ 
-                count++;
-            }else{
-                count=1;
+        int longest=0,cur_num,cur_cnt;
+        for(int num : nums){
+            if(num_set.count(num-1)==0){
+                cur_num=num;
+                cur_cnt=1;
+                while(num_set.count(cur_num+1)>0){
+                    cur_num++;
+                    cur_cnt++;
+                }
+                longest=max(longest,cur_cnt);
             }
-            if(count>longest) longest=count;
         }
         return longest;
     }
@@ -36,7 +33,7 @@ class Solution {
 
 int main(){
     Solution s;
-    vector<int> nums={1,2,0,1};
+    vector<int> nums={0,3,7,2,5,8,4,6,0,1};
     int res=s.longestConsecutive(nums);
     cout<<res<<endl;
     return 0;

@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/find-the-duplicate-number/solutions/
+// https://leetcode.com/problems/find-the-duplicate-number/
 
 #include<iostream>
 #include<vector>
@@ -8,9 +8,10 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         int s=0,f=0,a=0;
+        // Slow and Fast
         do{
             s=nums[s];
-            f=nums[nums[s]];
+            f=nums[nums[f]];
         }while(s!=f);
 
         while(s!=a){

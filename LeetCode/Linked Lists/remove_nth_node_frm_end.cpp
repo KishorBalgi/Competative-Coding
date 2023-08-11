@@ -15,25 +15,22 @@ struct ListNode {
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        int m=0,k=0;
-        ListNode * ptr=head;
-        while(ptr!=NULL){
-            m++;
-            ptr=ptr->next;
+        ListNode* start=new ListNode();
+        start->next = head;
+        ListNode* fast = start;
+        ListNode* slow = start;
+
+        for(int i=1; i<=n;i++){
+            fast=fast->next;
         }
-        k=m-n;
-        ListNode * prev=NULL;
-        ptr=head;
-        while(k--){
-            prev=ptr;
-            ptr=ptr->next;
+
+        while(fast->next != NULL){
+            fast=fast->next;
+            slow=slow->next;
         }
-        if(prev==NULL){
-            head=head->next;
-        }else{
-            prev->next=ptr->next;
-        }
-        return head;
+
+        slow->next=slow->next->next;
+        return start->next;
     }
 };
 
