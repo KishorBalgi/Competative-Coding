@@ -15,26 +15,40 @@ struct ListNode {
 class Solution {
 public:
     void reorderList(ListNode* head) {
-        stack<ListNode *> prevStack;
+        ListNode* slow=head;
+        ListNode* fast=head;
 
-        ListNode * ptr=head;
-        ListNode * temp=NULL;
-        while(ptr!=NULL){
-            prevStack.push(ptr);
-            ptr=ptr->next;
+        while(fast && fast->next){
+            slow=slow->next;
+            fast=fast->next->next;
         }
 
-        ptr=head;
-        while(ptr!=NULL && ptr->next!=NULL){
-            if(prevStack.empty()) break;
-            temp=prevStack.top();
-            prevStack.pop();
-            prevStack.top()->next=NULL;
+        // Reverse the end part
+        ListNode* cur=slow->next;
+        slow->next=NULL;
 
-            temp->next=ptr->next;
-            ptr->next=temp;
-            ptr=temp->next;
+        ListNode* prev=NULL;
+        ListNode* next=NULL;
+
+        while(cur){
+            next=cur->next;
+            cur->next=prev;
+            prev=cur;
+            cur=next;
         }
+
+        // Merge end parts with first part:
+        ListNode* ptr1=head;
+        ListNode* ptr2=prev;
+
+        while(ptr2){
+            next=ptr2->next;
+            ptr2->next=ptr1->next;
+            ptr1->next=ptr2;
+            ptr1=ptr2->next;
+            ptr2=next;
+        }
+
     }
 };
 
