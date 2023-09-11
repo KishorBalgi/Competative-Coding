@@ -2,6 +2,7 @@
 #include<iostream>
 #include<vector>
 #include<unordered_map>
+#include<queue>
 #include<algorithm>
 using namespace std;
 
@@ -10,18 +11,18 @@ public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         vector<int> res;
         unordered_map<int,int> m;
+        priority_queue<pair<int,int>> pq;
         for(int i: nums){
             m[i]++;
         }
-
-        vector<pair<int,int>> p;
-        for(auto it:m){
-            p.push_back({it.second,it.first});
+        int j=k;
+        for(auto i:m){
+            pq.push({i.second,i.first});
         }
-        sort(p.rbegin(),p.rend());
 
         for(int i=0;i<k;i++){
-            res.push_back(p[i].second);
+            res.push_back(pq.top().second);
+            pq.pop();
         }
 
         return res;

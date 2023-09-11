@@ -26,6 +26,7 @@ public:
 
     }
 
+    // O(log n)
     int heapify(vector<int>& nums,int n,int root){
 
         // Assume root as largest:
