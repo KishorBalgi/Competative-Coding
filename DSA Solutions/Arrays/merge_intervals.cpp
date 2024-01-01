@@ -10,7 +10,7 @@ public:
     vector<vector<int>> overlappedInterval(vector<vector<int>>& intervals) {
          // Code here'
          vector<vector<int>> res;
-         sort(intervals.begin(),intervals.end()));
+         sort(intervals.begin(),intervals.end());
          
          int a=intervals[0][0];
          int b=intervals[0][1];

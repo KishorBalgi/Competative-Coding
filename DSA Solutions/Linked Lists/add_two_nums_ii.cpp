@@ -13,8 +13,9 @@ struct ListNode {
 };
 
 class Solution {
-    // Another method is to use stack and get sum from top || reverse the lists add them and reverse again
+    // best method is to use stack and get sum from top || not so good method: reverse the lists add them and reverse again
 public:
+// This approach is fine but uses recursive stack(not recommended):
     int c=0;
     ListNode* addNode(ListNode* n1,ListNode* n2){
         if(n1==NULL || n2==NULL){
@@ -22,7 +23,7 @@ public:
         }
         ListNode* nextNode=addNode(n1->next,n2->next);
         int s=(n1->val+n2->val+c);
-        c= (s>=10) ?1:0;
+        c= s/10;
         ListNode* newNode=new ListNode(s%10);
         newNode->next=nextNode;
         return newNode;

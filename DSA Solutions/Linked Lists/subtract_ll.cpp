@@ -32,6 +32,7 @@ Node* balanceLst(Node* head,int m,int n){
 void subtract(Node* a,Node* b,int& c){
     if(!a && !b) return;
     subtract(a->next,b->next,c);
+    
     if(c==1){
         if(a->data!=0){
             a->data--;
@@ -61,7 +62,6 @@ Node* subLinkedList(Node* l1, Node* l2)
     else {
         l1=balanceLst(l1,m,n);
     }
-    
     
     Node * a,* b;
     

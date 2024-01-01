@@ -21,9 +21,7 @@ public:
 
         while(p1!=NULL && p2!=NULL){
             s=p1->val + p2->val + c;
-            // cout<<s<<endl;
             ListNode * newNode= new ListNode(s%10);
-            // cout<<s<<"\t"<<newNode->val<<endl;
             cur->next=newNode;
             cur=cur->next;
             // carry:

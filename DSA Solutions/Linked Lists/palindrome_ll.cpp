@@ -30,7 +30,7 @@ public:
         // Compare first half with reversed second reversed half:
         fast=head;
         slow=prev;
-        while(slow){
+        while(slow && fast){
             if(fast->val!=slow->val) return false;
             fast=fast->next;
             slow=slow->next;

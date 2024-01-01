@@ -8,8 +8,6 @@ vector<int> diagonal(Node *root)
    nxtDia.push(root);
 
    while(!nxtDia.empty()){
-       int queueCnt=nxtDia.size();
-        while(queueCnt--){
             Node* cur=nxtDia.front();
             while(cur){
                 diagonalTrav.push_back(cur->data);
@@ -17,7 +15,6 @@ vector<int> diagonal(Node *root)
                 cur=cur->right;
             }
             nxtDia.pop();
-        }
    }
    
    return diagonalTrav;

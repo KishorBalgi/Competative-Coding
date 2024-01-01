@@ -18,16 +18,15 @@ struct TreeNode {
 class Solution {
 public:
     int count=0;
-    void dfs(TreeNode * node,int root,int high){
+    void dfs(TreeNode * node,int high){
         if(!node) return;
-        if(node->val>=root && node->val>=high) count++;
+        if(node->val>=high) count++;
 
-        if(node->val>=root && node->val<high) return;
-        dfs(node->left,root,max(high,node->val));
-        dfs(node->right,root,max(high,node->val));
+        dfs(node->left,max(high,node->val));
+        dfs(node->right,max(high,node->val));
     }
     int goodNodes(TreeNode* root) {
-        dfs(root,root->val,root->val);
+        dfs(root,root->val);
         return count;
     }
 };
